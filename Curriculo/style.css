@@ -76,6 +76,8 @@ h2 {
 .links {
     display: flex;
     gap: 20px;
+    flex-direction: column; 
+    align-items: flex-start;
 }
 
 .links a {
@@ -88,22 +90,6 @@ h2 {
     border-radius: 8px;
 
     transition: 0.3s;
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    border: 2px solid var(--cor-terciaria);
-
-    width: 100%;
-    max-width: 378px;
-
-    text-align: center;
-    border-radius: 8px;
-    font-size: 24px;
-    font-weight: 600;
-    padding: 21px 0;
-    text-decoration: none;
-    color: var(--cor-secundaria);
-    font-family: var(--fonte-secundaria);
 }
 
 .links a:hover {
