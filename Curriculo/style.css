@@ -132,11 +132,17 @@ i {
     --cor-destaque: #547A95;
 }
 
-.dark-mode {
-    --cor-fundo: #1A1A1A;
-    --cor-texto: #FFFFFF;
-    --cor-container: #2A2A2A;
-    --cor-destaque: #7FB3D5;
+.modo-escuro {
+    background-color: #121212;
+    color: white;
+}
+
+.modo-escuro .container {
+    background-color: #1e1e1e;
+}
+
+.modo-escuro a {
+    color: #4da6ff;
 }
 
 body {
@@ -151,5 +157,54 @@ body {
 
 .container {
     background-color: var(--cor-container);
-}ground-color: var(--cor-secundaria);
+    ground-color: var(--cor-secundaria);
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider::before {
+    content: """";
+    position: absolute;
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider::before {
+    transform: translateX(26px);
+}
+
+
+
+.slider::before {
+    left: 10px;
+}
 }
