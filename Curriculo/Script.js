@@ -1,11 +1,5 @@
-const botao = document.getElementById("tema-btn");
+const toggle = document.getElementById("tema-toggle");
 
-botao.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-
-    if (document.body.classList.contains("dark-mode")) {
-        botao.textContent = "Modo Claro";
-    } else {
-        botao.textContent = " Modo Escuro";
-    }
+toggle.addEventListener("change", () => {
+    document.body.classList.toggle("modo-escuro");
 });
