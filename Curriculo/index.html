@@ -5,37 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Currículo - Nicolas Thomas Luizetti</title>
-    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="Script.js" defer></script>
 </head>
 
 <body class="corpo">
-
     <main class="container">
-        <button id="language-btn">🇺🇸 English</button>
 
         <img class="foto-perfil" src="./assets/imagem.jpeg" alt="Foto de Nicolas">
-        <label class="switch">
-            <input type="checkbox" id="tema-toggle">
-            <span class="slider"></span>
-            <span class="lua">🌙</span>
-        </label>
-        <h1 class="titulo">   Nicolas Thomas Luizetti</h1>
-        <hr>
-        <section class="secao">
-            <h2 id="dados">Dados Pessoais</h2>
 
-               <div class="links">
-             <a  href="mailto:nicolas.luizetti@gmail.com?subject=Contato%20via%20Portfólio%20-(nome da empresa)">Email</a>
-             <a  href="https://wa.me/5511968464253" target="_blank">Whatssap</a>   
-             <a href="https://maps.app.goo.gl/YZPCm3rWPtZwd8jE8?g_st=iw" target="blank"> 📍São Caetano do Sul</a>
+        <div class="botoes-topo">
+            <button id="tema-btn">Modo Escuro</button>
+            <button id="idioma-btn">EN</button>
+        </div>
+
+        <h1 class="titulo">Nicolas Thomas Luizetti</h1>
+        <hr>
+
+        <section class="secao">
+            <h2 data-pt="Dados Pessoais" data-en="Personal Information">Dados Pessoais</h2>
+
+            <div class="links">
+                <a href="mailto:nicolas.luizetti@gmail.com?subject=Contato%20via%20Portfólio%20-(nome da empresa)">Email</a>
+                <a href="https://wa.me/5511968464253" target="_blank">WhatsApp</a>
+                <a href="https://maps.app.goo.gl/YZPCm3rWPtZwd8jE8?g_st=iw" target="_blank">📍 São Caetano do Sul</a>
             </div>
         </section>
-    <section class="secao">
-            <h2 id="objetivo">Objetivo Profissional</h2>
 
-            <p id="textosobre" class="paragrafo">
+        <section class="secao">
+            <h2 data-pt="Objetivo Profissional" data-en="Professional Objective">Objetivo Profissional</h2>
+
+            <p class="paragrafo"
+                data-pt="Busco oportunidade como Desenvolvedor Back-end Java Junior, com foco em Java, Spring Boot, APIs REST e banco de dados. Também possuo interesse em Front-end com HTML e CSS."
+                data-en="I am looking for an opportunity as a Junior Java Back-end Developer, focused on Java, Spring Boot, REST APIs and databases. I also have interest in Front-end with HTML and CSS.">
                 Busco oportunidade como Desenvolvedor Back-end Java Junior,
                 com foco em Java, Spring Boot, APIs REST e banco de dados.
                 Também possuo interesse em Front-end com HTML e CSS.
@@ -43,32 +47,66 @@
         </section>
 
         <section class="secao">
-            <h2 id="titulo2">Conhecimentos Técnicos</h2>
+            <h2 id="titulo-lista-slider">Conhecimentos Técnicos</h2>
 
-            <ul class="lista">
-                <li> <i class="devicon-java-plain-wordmark colored"></i></li>
-                <li> <i class="devicon-spring-original-wordmark colored"></i> </li>
-                <li>JPA / <i class="devicon-hibernate-plain-wordmark"></i> </li>
-                <li> <i class="devicon-mysql-original colored"></i> </li>
-                <li> <i class="devicon-git-plain colored"></i> e <i class="devicon-github-original-wordmark colored"></i></li>
-                <li> <i class="devicon-css3-plain colored"></i> e <i class="devicon-html5-plain colored"></i></li>
-                <li><i class="devicon-javascript-plain"></i></li>
-            </ul>
+            <div class="slider-listas">
+                <button class="seta-slider" id="slider-esquerda">‹</button>
+
+                <div class="area-listas">
+
+                    <ul class="lista lista-slider ativa"
+                        data-titulo-pt="Conhecimentos Técnicos"
+                        data-titulo-en="Technical Skills">
+                        <li><i class="devicon-java-plain-wordmark colored"></i> </li>
+                        <li><i class="devicon-spring-original-wordmark colored"></i> </li>
+                        <li>JPA / <i class="devicon-hibernate-plain-wordmark colored"></i> </li>
+                        <li><i class="devicon-mysql-original colored"></i> </li>
+                        <li><i class="devicon-git-plain colored"></i> </li>
+                        <li><i class="devicon-github-original-wordmark colored"></i> </li>
+                        <li><i class="devicon-html5-plain colored"></i> </li>
+                        <li><i class="devicon-css3-plain colored"></i> </li>
+                    </ul>
+
+                    <ul class="lista lista-slider"
+                        data-titulo-pt="Educação"
+                        data-titulo-en="Education">
+                        <li data-pt="Ensino Médio Completo" data-en="High School Completed">Ensino Médio Completo(Colegio Eduardo gomes-2014)</li>
+                        <li data-pt="Estudos focados em desenvolvimento Back-end Java" data-en="Studies focused on Java Back-end development">Estudos focados em desenvolvimento Back-end Java(Alga works-2016)</li>
+                        <li data-pt="Prática com projetos pessoais" data-en="Practice with personal projects">Prática com projetos pessoais e IA (Alura-2025)</li>
+                        <li data-pt="Engenharia da computação " data-en="Computer engennier"> Engenharia da computação(Universidade metodista de SP-2018-2023</li>
+                    </ul>
+
+                    <ul class="lista lista-slider"
+                        data-titulo-pt="Cursos"
+                        data-titulo-en="Courses">
+                        <li>Java completo(Udemy - 2015)</li>
+                        <li>Spring Boot(Alga Works - 2016)</li>
+                        <li>APIs REST(Alga Works - 2016)</li>
+                        <li>Banco de Dados MySQL(Alga Works - 2015)</li>
+                        <li>HTML e CSS(Udemy - 2020)</li>
+                        <li>Web Desing com IA(Alura - 2026)</li>
+                    </ul>
+
+                </div>
+
+                <button class="seta-slider" id="slider-direita">›</button>
+            </div>
         </section>
 
         <section class="secao">
-            <h2>Links</h2>
+            <h2 data-pt="Links" data-en="Links">Links</h2>
 
             <div class="links">
-                <a href="https://github.com/nicolastluizetti" target="_blank"> GitHub</a>
-                <a href="https://apresentacao-pessoal-two.vercel.app/trabalhos%20anteriores.html" target="_blank">Apresentacao Pessoal </a>
-                <a href="https://linkedin.com/in/nicolas-thomas-luizetti"  target="_blank"> linkedin</a>
-
-                
+                <a href="https://github.com/nicolastluizetti" target="_blank">GitHub</a>
+                <a href="https://apresentacao-pessoal-two.vercel.app/trabalhos%20anteriores.html" target="_blank">Apresentação Pessoal</a>
+                <a href="https://linkedin.com/in/nicolas-thomas-luizetti" target="_blank">LinkedIn</a>
             </div>
         </section>
 
     </main>
+</body>
+
+</html>
 
 </body>
 
