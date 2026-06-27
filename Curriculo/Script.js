@@ -1,90 +1,85 @@
-const toggle = document.getElementById("tema-toggle");
+const botaoTema = document.getElementById("tema-btn");
+const botaoIdioma = document.getElementById("idioma-btn");
 
-toggle.addEventListener("change", () => {
-    document.body.classList.toggle("modo-escuro");
-    if (document.body.classList.contains("modo-escuro")) {
-        botao.textContent = "Modo Claro";
+const listas = document.querySelectorAll(".lista-slider");
+const btnDireita = document.getElementById("slider-direita");
+const btnEsquerda = document.getElementById("slider-esquerda");
+const tituloLista = document.getElementById("titulo-lista-slider");
+
+let listaAtual = 0;
+let idiomaAtual = "pt";
+
+botaoTema.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+        botaoTema.textContent = idiomaAtual === "pt" ? "Modo Claro" : "Light Mode";
     } else {
-        botao.textContent = "Modo Escuro";
+        botaoTema.textContent = idiomaAtual === "pt" ? "Modo Escuro" : "Dark Mode";
     }
 });
 
-const audioClick = new Audio('./assets/click.mp3');
+function atualizarTituloSlider() {
+    const listaAtiva = listas[listaAtual];
 
-document.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-        audioClick.currentTime = 0;
-        audioClick.play();
-    });
-});
-
-const languageBtn = document.getElementById("language-btn");
-
-let currentLanguage = "pt";
-
-const translations = {
-    pt: {
-        dados: "Dados pessoais:",
-
-        objetivo: "Objetivo Profissional",
-
-        textosobre:"Busco oportunidade como Desenvolvedor Back-end Java Junior, com foco em Java, Spring Boot, APIs REST e banco de dados. Também possuo interesse em Front-end com HTML e CSS.",
-        
-        titulo2:"Conhecimento Tecnico"
-
- 
-    },
-
-    en: {
-        dados:"Personal data",
-
-        objetivo: "Professional goals",
-        
-        textosobre:"I am seeking an opportunity as a Junior Java Back-end Developer, focusing on Java, Spring Boot, REST APIs, and databases. I am also interested in Front-end development with HTML and CSS.",
-
-        titulo2:"Technical Knowledge"
-    }
-};
-
-languageBtn.addEventListener("click", () => {
-
-    if (currentLanguage === "pt") {
-
-        currentLanguage = "en";
-
-        document.getElementById("dados").textContent =
-            translations.en.dados;
-
-        document.getElementById("objetivo").textContent =
-            translations.en.objetivo;
-
-        document.getElementById("textosobre").textContent =
-            translations.en.textosobre;
-
-        document.getElementById("titulo2").textContent =
-            translations.en.titulo2;
-
-        languageBtn.textContent = "🇧🇷 Português";
-
+    if (idiomaAtual === "pt") {
+        tituloLista.textContent = listaAtiva.dataset.tituloPt;
     } else {
-
-    currentLanguage = "pt";
-
-    document.getElementById("dados").textContent =
-        translations.pt.dados;
-
-    document.getElementById("objetivo").textContent =
-        translations.pt.objetivo;
-
-    document.getElementById("textosobre").textContent =
-        translations.pt.textosobre;
-
-    document.getElementById("titulo2").textContent =
-        translations.pt.titulo2;
-
-    languageBtn.textContent = "🇺🇸 English";
+        tituloLista.textContent = listaAtiva.dataset.tituloEn;
+    }
 }
+
+function mostrarLista() {
+    listas.forEach((lista) => {
+        lista.classList.remove("ativa");
+    });
+
+    listas[listaAtual].classList.add("ativa");
+    atualizarTituloSlider();
+}
+
+btnDireita.addEventListener("click", () => {
+    listaAtual++;
+
+    if (listaAtual >= listas.length) {
+        listaAtual = 0;
+    }
+
+    mostrarLista();
 });
 
+btnEsquerda.addEventListener("click", () => {
+    listaAtual--;
 
+    if (listaAtual < 0) {
+        listaAtual = listas.length - 1;
+    }
 
+    mostrarLista();
+});
+
+botaoIdioma.addEventListener("click", () => {
+    idiomaAtual = idiomaAtual === "pt" ? "en" : "pt";
+
+    const elementosTraduzidos = document.querySelectorAll("[data-pt][data-en]");
+
+    elementosTraduzidos.forEach((elemento) => {
+        if (idiomaAtual === "pt") {
+            elemento.textContent = elemento.dataset.pt;
+        } else {
+            elemento.textContent = elemento.dataset.en;
+        }
+    });
+
+    if (idiomaAtual === "pt") {
+        botaoIdioma.textContent = "EN";
+        botaoTema.textContent = document.body.classList.contains("dark-mode") ? "Modo Claro" : "Modo Escuro";
+    } else {
+        botaoIdioma.textContent = "PT";
+        botaoTema.textContent = document.body.classList.contains("dark-mode") ? "Light Mode" : "Dark Mode";
+    }
+
+    atualizarTituloSlider();
+});
+
+mostrarLista();
