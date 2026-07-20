@@ -5,9 +5,23 @@ const listas = document.querySelectorAll(".lista-slider");
 const btnDireita = document.getElementById("slider-direita");
 const btnEsquerda = document.getElementById("slider-esquerda");
 const tituloLista = document.getElementById("titulo-lista-slider");
+const containerIndicadores = document.getElementById("slider-indicadores");
 
 let listaAtual = 0;
 let idiomaAtual = "pt";
+
+// Inicializa os indicadores dinamicamente baseado na quantidade de slides
+listas.forEach((_, index) => {
+    const dot = document.createElement("button");
+    dot.classList.add("indicador-dot");
+    if (index === 0) dot.classList.add("ativo");
+    dot.setAttribute("aria-label", `Slide ${index + 1}`);
+    dot.addEventListener("click", () => {
+        listaAtual = index;
+        mostrarLista();
+    });
+    containerIndicadores.appendChild(dot);
+});
 
 botaoTema.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
@@ -35,6 +49,17 @@ function mostrarLista() {
     });
 
     listas[listaAtual].classList.add("ativa");
+
+    // Atualiza o estado visual das bolinhas (dots)
+    const dots = containerIndicadores.querySelectorAll(".indicador-dot");
+    dots.forEach((dot, index) => {
+        if (index === listaAtual) {
+            dot.classList.add("ativo");
+        } else {
+            dot.classList.remove("ativo");
+        }
+    });
+
     atualizarTituloSlider();
 }
 
