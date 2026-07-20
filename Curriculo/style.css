@@ -125,10 +125,20 @@ i {
     vertical-align: middle;
 }
 
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+}
+
 .slider-listas {
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    width: 100%;
 }
 
 .area-listas {
@@ -136,9 +146,10 @@ i {
     min-height: 250px;
     background-color: var(--cor-container);
     color: var(--cor-texto);
-    border-radius: 10px;
-    padding: 25px;
+    border-radius: 12px;
+    padding: 25px 45px;
     box-shadow: 0 4px 12px var(--cor-sombra);
+    transition: 0.3s ease;
 }
 
 .lista-slider {
@@ -155,12 +166,66 @@ i {
 }
 
 .seta-slider {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    font-size: 32px;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--cor-destaque);
+    color: var(--cor-botao-texto);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s, transform 0.2s, opacity 0.3s;
+    z-index: 5;
+    padding-bottom: 4px; /* Ajuste fino para centralizar verticalmente o caractere do botão */
+}
+
+.seta-slider:hover {
+    opacity: 0.95;
+    transform: translateY(-50%) scale(1.08);
+}
+
+.seta-slider:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+#slider-esquerda {
+    left: -22px;
+}
+
+#slider-direita {
+    right: -22px;
+}
+
+/* Indicadores / Dots */
+.slider-indicadores {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.indicador-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--cor-texto);
+    opacity: 0.3;
+    cursor: pointer;
+    transition: opacity 0.3s, transform 0.3s, background-color 0.3s;
+    border: none;
     padding: 0;
-    flex-shrink: 0;
+}
+
+.indicador-dot.ativo {
+    opacity: 0.85;
+    transform: scale(1.25);
+    background-color: var(--cor-destaque);
 }
 
 @media (max-width: 600px) {
@@ -173,16 +238,27 @@ i {
         padding: 25px;
     }
 
-    .slider-listas {
-        gap: 6px;
-    }
-
     .lista-slider.ativa {
         grid-template-columns: 1fr;
     }
 
     .area-listas {
         min-height: 320px;
-        padding: 20px;
+        padding: 20px 32px;
+    }
+
+    .seta-slider {
+        width: 36px;
+        height: 36px;
+        font-size: 24px;
+        padding-bottom: 3px;
+    }
+
+    #slider-esquerda {
+        left: -12px;
+    }
+
+    #slider-direita {
+        right: -12px;
     }
 }
