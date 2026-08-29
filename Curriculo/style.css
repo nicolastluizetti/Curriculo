@@ -114,6 +114,7 @@ h2 {
 
 .links a:hover {
     opacity: 0.85;
+    transform: scale(1.2);
 }
 
 a {
