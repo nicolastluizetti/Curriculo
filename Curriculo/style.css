@@ -114,7 +114,6 @@ h2 {
 
 .links a:hover {
     opacity: 0.85;
-    transform: scale(1.2);
 }
 
 a {
@@ -261,5 +260,78 @@ i {
 
     #slider-direita {
         right: -12px;
+    }
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--cor-destaque);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+.titulo {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    line-height: 1.15;
+}
+
+.subtitulo {
+    margin: -10px 0 22px;
+    color: var(--cor-destaque);
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.paragrafo {
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.botoes-topo button,
+.links a {
+    min-height: 44px;
+}
+
+.lista-slider li {
+    line-height: 1.5;
+}
+
+.lista-slider i {
+    font-size: 2rem;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--cor-texto);
+    outline-offset: 3px;
+}
+
+@media (min-width: 700px) {
+    .links {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    .area-listas {
+        padding-right: 38px;
+        padding-left: 38px;
     }
 }
